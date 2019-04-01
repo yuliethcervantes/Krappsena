@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="krappsenaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="idArea" />
+          </Key>
+          <Property Name="idArea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descArea" Type="varchar" MaxLength="80" />
+          <Property Name="estaArea" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="idCarg" />
+          </Key>
+          <Property Name="idCarg" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descCarg" Type="varchar" MaxLength="80" />
+          <Property Name="estaCarg" Type="int" />
+        </EntityType>
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="idCate" />
+          </Key>
+          <Property Name="idCate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estaCate" Type="int" />
+          <Property Name="descCate" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="Detallederegistrodenovedad">
+          <Key>
+            <PropertyRef Name="idDeno" />
+          </Key>
+          <Property Name="idDeno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idReno" Type="int" />
+          <Property Name="idNove" Type="int" />
+          <Property Name="idDocumento" Type="int" />
+          <Property Name="estaDeno" Type="int" />
+        </EntityType>
+        <EntityType Name="empleados">
+          <Key>
+            <PropertyRef Name="idEmpl" />
+          </Key>
+          <Property Name="idEmpl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="docuEmpl" Type="varchar" MaxLength="15" />
+          <Property Name="nombUsua" Type="varchar" MaxLength="80" />
+          <Property Name="apelEmpl" Type="varchar" MaxLength="20" />
+          <Property Name="teleUsua" Type="varchar" MaxLength="15" />
+          <Property Name="direUsua" Type="varchar" MaxLength="30" />
+          <Property Name="emaiUsua" Type="varchar" MaxLength="50" />
+          <Property Name="idArea" Type="int" />
+          <Property Name="idCarg" Type="int" />
+          <Property Name="idSede" Type="int" />
+          <Property Name="idTiem" Type="int" />
+          <Property Name="estaEmp" Type="int" />
+        </EntityType>
+        <EntityType Name="Registrodenovedad">
+          <Key>
+            <PropertyRef Name="idReno" />
+          </Key>
+          <Property Name="idReno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechReno" Type="date" />
+          <Property Name="horaReno" Type="date" />
+          <Property Name="idEmp" Type="int" />
+          <Property Name="idCate" Type="int" />
+          <Property Name="estaReno" Type="int" />
+        </EntityType>
+        <EntityType Name="Sede">
+          <Key>
+            <PropertyRef Name="idSede" />
+          </Key>
+          <Property Name="idSede" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descSede" Type="varchar" MaxLength="80" />
+          <Property Name="estaSede" Type="int" />
+        </EntityType>
+        <EntityType Name="Tipodeempleados">
+          <Key>
+            <PropertyRef Name="idTiem" />
+          </Key>
+          <Property Name="idTiem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descTiem" Type="varchar" MaxLength="80" />
+          <Property Name="estaTiem" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tipodenovedad">
+          <Key>
+            <PropertyRef Name="idTino" />
+          </Key>
+          <Property Name="idTino" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descTino" Type="varchar" MaxLength="80" />
+          <Property Name="estaTino" Type="int" />
+          <Property Name="idCate" Type="int" />
+        </EntityType>
+        <EntityContainer Name="krappsenaModelStoreContainer">
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detallederegistrodenovedad" EntityType="Self.Detallederegistrodenovedad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empleados" EntityType="Self.empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Registrodenovedad" EntityType="Self.Registrodenovedad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sede" EntityType="Self.Sede" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipodeempleados" EntityType="Self.Tipodeempleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipodenovedad" EntityType="Self.Tipodenovedad" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="krappsenaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="idArea" />
+          </Key>
+          <Property Name="idArea" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descArea" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="estaArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="idCarg" />
+          </Key>
+          <Property Name="idCarg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descCarg" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="estaCarg" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="idCate" />
+          </Key>
+          <Property Name="idCate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estaCate" Type="Int32" />
+          <Property Name="descCate" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Detallederegistrodenovedad">
+          <Key>
+            <PropertyRef Name="idDeno" />
+          </Key>
+          <Property Name="idDeno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idReno" Type="Int32" />
+          <Property Name="idNove" Type="Int32" />
+          <Property Name="idDocumento" Type="Int32" />
+          <Property Name="estaDeno" Type="Int32" />
+        </EntityType>
+        <EntityType Name="empleados">
+          <Key>
+            <PropertyRef Name="idEmpl" />
+          </Key>
+          <Property Name="idEmpl" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="docuEmpl" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="nombUsua" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="apelEmpl" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="teleUsua" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="direUsua" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="emaiUsua" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idArea" Type="Int32" />
+          <Property Name="idCarg" Type="Int32" />
+          <Property Name="idSede" Type="Int32" />
+          <Property Name="idTiem" Type="Int32" />
+          <Property Name="estaEmp" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Registrodenovedad">
+          <Key>
+            <PropertyRef Name="idReno" />
+          </Key>
+          <Property Name="idReno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechReno" Type="DateTime" Precision="0" />
+          <Property Name="horaReno" Type="DateTime" Precision="0" />
+          <Property Name="idEmp" Type="Int32" />
+          <Property Name="idCate" Type="Int32" />
+          <Property Name="estaReno" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Sede">
+          <Key>
+            <PropertyRef Name="idSede" />
+          </Key>
+          <Property Name="idSede" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descSede" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="estaSede" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Tipodeempleados">
+          <Key>
+            <PropertyRef Name="idTiem" />
+          </Key>
+          <Property Name="idTiem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descTiem" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="estaTiem" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tipodenovedad">
+          <Key>
+            <PropertyRef Name="idTino" />
+          </Key>
+          <Property Name="idTino" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descTino" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="estaTino" Type="Int32" />
+          <Property Name="idCate" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="krappsenaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Area" EntityType="Self.Area" />
+          <EntitySet Name="Cargo" EntityType="Self.Cargo" />
+          <EntitySet Name="Categorias" EntityType="Self.Categorias" />
+          <EntitySet Name="Detallederegistrodenovedad" EntityType="Self.Detallederegistrodenovedad" />
+          <EntitySet Name="empleados" EntityType="Self.empleados" />
+          <EntitySet Name="Registrodenovedad" EntityType="Self.Registrodenovedad" />
+          <EntitySet Name="Sede" EntityType="Self.Sede" />
+          <EntitySet Name="Tipodeempleados" EntityType="Self.Tipodeempleados" />
+          <EntitySet Name="Tipodenovedad" EntityType="Self.Tipodenovedad" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="krappsenaModelStoreContainer" CdmEntityContainer="krappsenaEntities">
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="krappsenaModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="idArea" ColumnName="idArea" />
+                <ScalarProperty Name="descArea" ColumnName="descArea" />
+                <ScalarProperty Name="estaArea" ColumnName="estaArea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cargo">
+            <EntityTypeMapping TypeName="krappsenaModel.Cargo">
+              <MappingFragment StoreEntitySet="Cargo">
+                <ScalarProperty Name="idCarg" ColumnName="idCarg" />
+                <ScalarProperty Name="descCarg" ColumnName="descCarg" />
+                <ScalarProperty Name="estaCarg" ColumnName="estaCarg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorias">
+            <EntityTypeMapping TypeName="krappsenaModel.Categorias">
+              <MappingFragment StoreEntitySet="Categorias">
+                <ScalarProperty Name="idCate" ColumnName="idCate" />
+                <ScalarProperty Name="estaCate" ColumnName="estaCate" />
+                <ScalarProperty Name="descCate" ColumnName="descCate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detallederegistrodenovedad">
+            <EntityTypeMapping TypeName="krappsenaModel.Detallederegistrodenovedad">
+              <MappingFragment StoreEntitySet="Detallederegistrodenovedad">
+                <ScalarProperty Name="idDeno" ColumnName="idDeno" />
+                <ScalarProperty Name="idReno" ColumnName="idReno" />
+                <ScalarProperty Name="idNove" ColumnName="idNove" />
+                <ScalarProperty Name="idDocumento" ColumnName="idDocumento" />
+                <ScalarProperty Name="estaDeno" ColumnName="estaDeno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empleados">
+            <EntityTypeMapping TypeName="krappsenaModel.empleados">
+              <MappingFragment StoreEntitySet="empleados">
+                <ScalarProperty Name="idEmpl" ColumnName="idEmpl" />
+                <ScalarProperty Name="docuEmpl" ColumnName="docuEmpl" />
+                <ScalarProperty Name="nombUsua" ColumnName="nombUsua" />
+                <ScalarProperty Name="apelEmpl" ColumnName="apelEmpl" />
+                <ScalarProperty Name="teleUsua" ColumnName="teleUsua" />
+                <ScalarProperty Name="direUsua" ColumnName="direUsua" />
+                <ScalarProperty Name="emaiUsua" ColumnName="emaiUsua" />
+                <ScalarProperty Name="idArea" ColumnName="idArea" />
+                <ScalarProperty Name="idCarg" ColumnName="idCarg" />
+                <ScalarProperty Name="idSede" ColumnName="idSede" />
+                <ScalarProperty Name="idTiem" ColumnName="idTiem" />
+                <ScalarProperty Name="estaEmp" ColumnName="estaEmp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registrodenovedad">
+            <EntityTypeMapping TypeName="krappsenaModel.Registrodenovedad">
+              <MappingFragment StoreEntitySet="Registrodenovedad">
+                <ScalarProperty Name="idReno" ColumnName="idReno" />
+                <ScalarProperty Name="fechReno" ColumnName="fechReno" />
+                <ScalarProperty Name="horaReno" ColumnName="horaReno" />
+                <ScalarProperty Name="idEmp" ColumnName="idEmp" />
+                <ScalarProperty Name="idCate" ColumnName="idCate" />
+                <ScalarProperty Name="estaReno" ColumnName="estaReno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sede">
+            <EntityTypeMapping TypeName="krappsenaModel.Sede">
+              <MappingFragment StoreEntitySet="Sede">
+                <ScalarProperty Name="idSede" ColumnName="idSede" />
+                <ScalarProperty Name="descSede" ColumnName="descSede" />
+                <ScalarProperty Name="estaSede" ColumnName="estaSede" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipodeempleados">
+            <EntityTypeMapping TypeName="krappsenaModel.Tipodeempleados">
+              <MappingFragment StoreEntitySet="Tipodeempleados">
+                <ScalarProperty Name="idTiem" ColumnName="idTiem" />
+                <ScalarProperty Name="descTiem" ColumnName="descTiem" />
+                <ScalarProperty Name="estaTiem" ColumnName="estaTiem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipodenovedad">
+            <EntityTypeMapping TypeName="krappsenaModel.Tipodenovedad">
+              <MappingFragment StoreEntitySet="Tipodenovedad">
+                <ScalarProperty Name="idTino" ColumnName="idTino" />
+                <ScalarProperty Name="descTino" ColumnName="descTino" />
+                <ScalarProperty Name="estaTino" ColumnName="estaTino" />
+                <ScalarProperty Name="idCate" ColumnName="idCate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
